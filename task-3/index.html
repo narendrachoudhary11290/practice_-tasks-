@@ -8,6 +8,7 @@
 </head>
 <body>
     <h1>Customer Info</h1>
+    <h2></h2>
     <div id="customer_information"></div>
     <div id="courses_list"></div>
 
@@ -56,17 +57,19 @@
 };
 
 const cName = Customer.customerInformatino.firstname + " " + Customer.customerInformatino.lastname;
-const  cource_enroll = Customer.customerInformatino.CoursesEnrolled;
+const  course_enroll = Customer.customerInformatino.CoursesEnrolled;
 
 const cInfoDiv = document.getElementById("customer_information");
 const cNameHeading = document.createElement("h2");
 cNameHeading.textContent="Customer name:- " + cName;
-cInfoDiv.appendChild(cNameHeading);
 const coursesDiv = document.getElementById("courses_list");
 const coursesHeading = document.createElement("h3");
 coursesHeading.textContent = "Courses Enroll :- ";
+// appendind json objects to div
+cInfoDiv.appendChild(cNameHeading);
 coursesDiv.appendChild(coursesHeading);
-cource_enroll.forEach(course => {
+// to get each course list and element from the json we use for-each loop on course_enroll
+course_enroll.forEach(course => {
     // const course = document.
     const courseName = document.createElement("p");
     courseName.textContent = " List of Courses :- " + course.courseName;
@@ -74,10 +77,10 @@ cource_enroll.forEach(course => {
 
     const topics_List = document.createElement("ul");
     // document.getElementsByTagName("ul").style.color = "blue";
-    course.topics.forEach(topic => {
-        const topicItem = document.createElement("li");
-        topicItem.textContent = topic;
-        topics_List.appendChild(topicItem);
+    course.topics.forEach(element => {
+        const topicElement = document.createElement("li");
+        topicElement.textContent = element;
+        topics_List.appendChild(topicElement);
     });
     coursesDiv.appendChild(topics_List);
 });
