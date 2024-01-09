@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    
+</head>
+<body>
+    <h1>Customer Info</h1>
+    <div id="customer_information"></div>
+    <div id="courses_list"></div>
+
+    <script >
+        const Customer = {
+    "customerInformatino": {
+        "firstname": "Liyakat",
+        "lastname": "Hussain",
+        "CoursesEnrolled": [
+            {
+                "id": 1,
+                "courseName": "Angular Course",
+                "duration": "30",
+                "ratings": "5",
+                "totalLectures": 5,
+                "completedLecture": 1,
+                "tutorName": "Test",
+                "price": 400,
+                "topics": [
+                    "What is Angular",
+                    "Component in Angular",
+                    "Module in Angular",
+                    "Services in Angular",
+                    "Directive in Angular"
+                ]
+            },
+            {
+                "id": 2,
+                "courseName": "React Course",
+                "duration": "15",
+                "ratings": "4",
+                "totalLectures": 5,
+                "completedLecture": 1,
+                "tutorName": "Test 2",
+                "price": 500,
+                "topics": [
+                    "What is React",
+                    "Component in React",
+                    "Module in React",
+                    "Services in React",
+                    "Directive in React"
+                ]
+            }
+        ]
+    }
+};
+
+const cName = Customer.customerInformatino.firstname + " " + Customer.customerInformatino.lastname;
+const  cource_enroll = Customer.customerInformatino.CoursesEnrolled;
+
+const cInfoDiv = document.getElementById("customer_information");
+const cNameHeading = document.createElement("h2");
+cNameHeading.textContent="Customer name:" + cName;
+cInfoDiv.appendChild(cNameHeading);
+const coursesDiv = document.getElementById("courses_list");
+const coursesHeading = document.createElement("h3");
+coursesHeading.textContent = "Courses in Json:";
+coursesDiv.appendChild(coursesHeading);
+cource_enroll.forEach(course => {
+    // const course = document.
+    const courseName = document.createElement("p");
+    courseName.textContent = " List of Courses :- " + course.courseName;
+    coursesDiv.appendChild(courseName);
+
+    const topics_List = document.createElement("ul");
+    // document.getElementsByTagName("ul").style.color = "blue";
+    course.topics.forEach(topic => {
+        const topicItem = document.createElement("li");
+        topicItem.textContent = topic;
+        topics_List.appendChild(topicItem);
+    });
+    coursesDiv.appendChild(topics_List);
+});
+    </script>
+    <style>
+        *{
+            background-color: beige;
+        }
+        h1{
+            color: darkgreen;
+            text-align: center;
+        }
+        
+        div#customer_information{
+            color: darkcyan;
+        }
+        div#courses_list{
+            color: darkcyan;
+            /* margin-left: 40%; */
+        }
+        h3{
+            margin-left: 0%;
+        }
+        p{
+            margin-left: 10%;
+        }
+        ul{
+            margin-left: 15%;
+        }
+    </style>
+</body>
+</html>
