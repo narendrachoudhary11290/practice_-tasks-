@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        Data = {
+  "employees": [
+    {
+      "id": 1,
+      "name": "John Doe",
+      "position": "Software Developer",
+      "department": "Engineering",
+      "salary": 75000
+    },
+    {
+      "id": 2,
+      "name": "Jane Smith",
+      "position": "UI/UX Designer",
+      "department": "Design",
+      "salary": 60000
+    },
+]};
+//task-1
+function calculateTotalSalary(item){
+    let totalsalary = 0;
+    item.employees.forEach(element => {
+        totalsalary+= element.salary;
+    });
+    return totalsalary;
+}
+console.log("Total Salary :" , calculateTotalSalary(Data))
+
+// task-2
+function getEmployeeById(item, employeeid){
+   return item.employees.find((employee) => employee.id === employeeid)
+}
+console.log("Employee Details By Employee Id: ", getEmployeeById(Data, 1))
+
+// task=3
+
+//     function getDepartmentEmployeeCount(data) {
+    
+  
+//     data.employees.forEach(employee => {
+      
+      
+//     });
+  
+//   }
+//   console.log("", getDepartmentEmployeeCount(Data));
+  
+//Task-3 Not done yet
+
+
+//task-4
+function incrementSalary(data, employeeId, percentageIncrease) {
+  data.employees.forEach(employee => {
+    if (employee.id === employeeId) {
+      const currentSalary = employee.salary;
+      const newSalary = currentSalary * (1 + percentageIncrease / 100);
+      employee.salary = newSalary;
+    }
+  });
+}
+
+incrementSalary(Data, 2, 10);
+console.log("Updated Salary :", getEmployeeById(Data, 2).salary);
+
+// task-5
+function addNewEmployee(data, newEmployee) {
+    data.employees.push(newEmployee); //push in array
+  }
+  const newEmployee = {
+    "id": 3,
+    "name": "Narendra",
+    "position": "Software Developer",
+    "department": "Engineering",
+    "salary": 80000
+  };
+  addNewEmployee(Data, newEmployee);
+  console.log("Updated Employee Data:", Data);
+
+</script>
+</body>
+</html>

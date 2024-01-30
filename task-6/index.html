@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Form</title>
+</head>
+<body>
+  <form id="greetingForm">
+    <label for="nameInput">Enter your name:</label>
+    <input type="text" id="nameInput" name="name" required>
+    <button type="button" onclick="display()">Submit</button>
+  </form>
+  <script>
+    function display() {
+      const name = document.getElementById('nameInput');
+      const userName = name.value; 
+      if (userName !== "") {
+        alert(`Hello, ${userName}! , Welcome to the page`);
+      } else {
+        alert("Please enter your name.");
+      }
+    }
+  </script>
+</body>
+</html>
